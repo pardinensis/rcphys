@@ -3,4 +3,4 @@
 #include "common.hpp"
 #include "trackpoint.hpp"
 
-void exportTrackSegment(const TrackPoint& a, const TrackPoint& b);
+void exportTrackSegment(const std::vector<TrackPoint>& track);
