@@ -5,12 +5,15 @@
 #include <iostream>
 #include <vector>
 
+#define GLM_ENABLE_EXPERIMENTAL
 #define GLM_FORCE_RADIANS
 #include <glm/vec3.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/norm.hpp>
 #include <glm/gtx/projection.hpp>
 #include <glm/gtx/string_cast.hpp>
+
+#include <zlib.h>
 
 // gravity [m/s^2]
 const glm::vec3 G = {0.f, -9.81f, 0.f};
