@@ -3,30 +3,30 @@
 
 const std::vector<glm::vec3> spineVertices = {
     // left spine
-    {-0.8f + 0.1414f, -1.5f + 0.0f, 0.0f},
-    {-0.8f + 0.1f, -1.5f + 0.1f, 0.0f},
-    {-0.8f + 0.0f, -1.5f + 0.1414f, 0.0f},
-    {-0.8f - 0.1f, -1.5f + 0.1f, 0.0f},
-    {-0.8f - 0.1414f, -1.5f + 0.0f, 0.0f},
-    {-0.8f - 0.1f, -1.5f - 0.1f, 0.0f},
-    {-0.8f + 0.0f, -1.5f - 0.1414f, 0.0f},
-    {-0.8f + 0.1f, -1.5f - 0.1f, 0.0f},
+    {-0.5f * GAUGE + 0.1414f, HEARTLINE + 0.0f, 0.0f},
+    {-0.5f * GAUGE + 0.1f, HEARTLINE + 0.1f, 0.0f},
+    {-0.5f * GAUGE + 0.0f, HEARTLINE + 0.1414f, 0.0f},
+    {-0.5f * GAUGE - 0.1f, HEARTLINE + 0.1f, 0.0f},
+    {-0.5f * GAUGE - 0.1414f, HEARTLINE + 0.0f, 0.0f},
+    {-0.5f * GAUGE - 0.1f, HEARTLINE - 0.1f, 0.0f},
+    {-0.5f * GAUGE + 0.0f, HEARTLINE - 0.1414f, 0.0f},
+    {-0.5f * GAUGE + 0.1f, HEARTLINE - 0.1f, 0.0f},
 
     // right spine
-    {0.8f + 0.1414f, -1.5f + 0.0f, 0.0f},
-    {0.8f + 0.1f, -1.5f + 0.1f, 0.0f},
-    {0.8f + 0.0f, -1.5f + 0.1414f, 0.0f},
-    {0.8f - 0.1f, -1.5f + 0.1f, 0.0f},
-    {0.8f - 0.1414f, -1.5f + 0.0f, 0.0f},
-    {0.8f - 0.1f, -1.5f - 0.1f, 0.0f},
-    {0.8f + 0.0f, -1.5f - 0.1414f, 0.0f},
-    {0.8f + 0.1f, -1.5f - 0.1f, 0.0f},
+    {0.5f * GAUGE + 0.1414f, HEARTLINE + 0.0f, 0.0f},
+    {0.5f * GAUGE + 0.1f, HEARTLINE + 0.1f, 0.0f},
+    {0.5f * GAUGE + 0.0f, HEARTLINE + 0.1414f, 0.0f},
+    {0.5f * GAUGE - 0.1f, HEARTLINE + 0.1f, 0.0f},
+    {0.5f * GAUGE - 0.1414f, HEARTLINE + 0.0f, 0.0f},
+    {0.5f * GAUGE - 0.1f, HEARTLINE - 0.1f, 0.0f},
+    {0.5f * GAUGE + 0.0f, HEARTLINE - 0.1414f, 0.0f},
+    {0.5f * GAUGE + 0.1f, HEARTLINE - 0.1f, 0.0f},
 
     // center spine
-    {0.0f + 0.3f, -2.0f + 0.3f, 0.0f},
-    {0.0f - 0.3f, -2.0f + 0.3f, 0.0f},
-    {0.0f - 0.3f, -2.0f - 0.3f, 0.0f},
-    {0.0f + 0.3f, -2.0f - 0.3f, 0.0f},
+    {0.0f + 0.3f, HEARTLINE - 0.5f + 0.3f, 0.0f},
+    {0.0f - 0.3f, HEARTLINE - 0.5f + 0.3f, 0.0f},
+    {0.0f - 0.3f, HEARTLINE - 0.5f - 0.3f, 0.0f},
+    {0.0f + 0.3f, HEARTLINE - 0.5f - 0.3f, 0.0f},
 };
 
 const std::vector<glm::uvec3> spineTriangles = {
@@ -77,6 +77,49 @@ const std::vector<glm::uvec3> spineTriangles = {
     {16, 39, 36},
 };
 
+const std::vector<glm::vec3> tieVertices = {
+    {0.5f * GAUGE, HEARTLINE, 0.03f},
+    {0.3f, HEARTLINE - 0.1f, 0.03f},
+    {-0.3f, HEARTLINE - 0.1f, 0.03f},
+    {-0.5f * GAUGE, HEARTLINE, 0.03f},
+    {-0.3f, HEARTLINE - 0.5f, 0.03f},
+    {0.3f, HEARTLINE - 0.5f, 0.03f},
+    {0.5f * GAUGE, HEARTLINE, -0.03f},
+    {0.3f, HEARTLINE - 0.1f, -0.03f},
+    {-0.3f, HEARTLINE - 0.1f, -0.03f},
+    {-0.5f * GAUGE, HEARTLINE, -0.03f},
+    {-0.3f, HEARTLINE - 0.5f, -0.03f},
+    {0.3f, HEARTLINE - 0.5f, -0.03f},
+};
+
+const std::vector<glm::uvec3> tieTriangles = {
+    // edge
+    {0, 6, 1},
+    {1, 6, 7},
+    {1, 7, 2},
+    {2, 7, 8},
+    {2, 8, 3},
+    {3, 8, 9},
+    {3, 9, 4},
+    {4, 9, 10},
+    {4, 10, 5},
+    {5, 10, 11},
+    {5, 11, 0},
+    {0, 11, 6},
+
+    // front
+    {0, 1, 5},
+    {1, 2, 5},
+    {2, 4, 5},
+    {2, 3, 4},
+
+    // back
+    {6, 11, 7},
+    {7, 11, 8},
+    {8, 11, 10},
+    {8, 10, 9},
+};
+
 void exportTrackSegment(const std::vector<TrackPoint>& track) {
     std::vector<glm::vec3> segmentVertices;
     std::vector<glm::uvec3> segmentIndices;
@@ -94,7 +137,16 @@ void exportTrackSegment(const std::vector<TrackPoint>& track) {
         }
     }
 
-    //
+    // ties
+    for (unsigned int i = 0; i < track.size(); ++i) {
+        unsigned int indexOffset = segmentVertices.size();
+        for (glm::vec3 v : tieVertices) {
+            segmentVertices.push_back(track[i].rot * v + track[i].pos);
+        }
+        for (glm::uvec3 t : tieTriangles) {
+            segmentIndices.push_back(glm::uvec3(t.x + indexOffset, t.y + indexOffset, t.z + indexOffset));
+        }
+    }
 
     std::ofstream ofs("track.obj");
     if (ofs.is_open()) {

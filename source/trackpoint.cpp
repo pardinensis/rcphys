@@ -39,7 +39,7 @@ TrackPoint TrackPoint::next(float aVertical, float aHorizontal, float aRotationa
 }
 
 glm::vec3 TrackPoint::getTrackPos() const {
-	return pos + getDown() * HEARTLINE;
+	return pos + getUp() * HEARTLINE;
 }
 
 std::ostream& operator<<(std::ostream& os, const TrackPoint& tp) {
