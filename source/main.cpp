@@ -40,16 +40,14 @@ int main() {
     std::cout << "y: " << glm::to_string(tp.getUp()) << std::endl;
     std::cout << "z: " << glm::to_string(tp.getBackward()) << std::endl;
 
-    TrackPoint tp1 = tp.next(0, 0, 0);
-    exportTrackSegment(tp, tp1);
-
-    std::ofstream ofs("airtime.txt");
+    std::vector<TrackPoint> track;
+    track.push_back(tp);
     for (unsigned int i = 0; i < verticalAccels.size(); ++i) {
-        ofs << tp.pos.x << " " << -tp.pos.z << " " << tp.pos.y << " ";
-        glm::vec3 trackpos = tp.getTrackPos();
-        ofs << trackpos.x << " " << -trackpos.z << " " << trackpos.y << std::endl;
         tp = tp.next(verticalAccels[i], 0, rotationalAccels[i]);
+        track.push_back(tp);
     }
+
+    exportTrackSegment(track);
 
     return 0;
 }
