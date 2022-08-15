@@ -25,4 +25,8 @@ const float T_STEP = 0.1f;
 const float EPSILON = 0.00001f;
 
 // height of the heartline [m]
-const float HEARTLINE = 1.5;
+const float HEARTLINE = -2.0f;
+
+// distance between the track splines [m]
+const float GAUGE = 1.6f;
+
