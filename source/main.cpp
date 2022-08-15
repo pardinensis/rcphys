@@ -1,4 +1,5 @@
 #include "common.hpp"
+#include "exporter.hpp"
 #include "trackpoint.hpp"
 
 
@@ -39,8 +40,11 @@ int main() {
     std::cout << "y: " << glm::to_string(tp.getUp()) << std::endl;
     std::cout << "z: " << glm::to_string(tp.getBackward()) << std::endl;
 
+    TrackPoint tp1 = tp.next(0, 0, 0);
+    exportTrackSegment(tp, tp1);
+
     std::ofstream ofs("airtime.txt");
-    for (int i = 0; i < verticalAccels.size(); ++i) {
+    for (unsigned int i = 0; i < verticalAccels.size(); ++i) {
         ofs << tp.pos.x << " " << -tp.pos.z << " " << tp.pos.y << " ";
         glm::vec3 trackpos = tp.getTrackPos();
         ofs << trackpos.x << " " << -trackpos.z << " " << trackpos.y << std::endl;
